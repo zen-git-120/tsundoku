@@ -7,9 +7,9 @@
     <meta name="application-name" content="Myapp">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <%# Rails 8.1とcookiesの扱いが変わったため、csrf_meta_tagsとcsp_meta_tagをコメントアウトしています。 %>
-    <%#= csrf_meta_tags %>
-    <%#= csp_meta_tag %>
+    <% # Rails 8.1とcookiesの扱いが変わったため、csrf_meta_tagsとcsp_meta_tagをコメントアウトしています。 %>
+    <% # = csrf_meta_tags %>
+    <% # = csp_meta_tag %>
 
     <%= yield :head %>
 
@@ -26,6 +26,8 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
