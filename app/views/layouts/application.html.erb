@@ -25,6 +25,16 @@
   </head>
 
   <body>
+    <header class="d-flex justify-content-between align-items-center px-4 py-3 border-bottom">
+      <%= link_to "Tsun-doku", root_path,
+          class: "fs-4 fw-bold text-decoration-none" %>
+      <% if user_signed_in? %>
+          <%= button_to "ログアウト",
+            destroy_user_session_path,
+            method: :delete,
+            class: "btn btn-outline-primary" %>
+      <% end %>
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
