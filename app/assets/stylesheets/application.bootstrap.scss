@@ -1,2 +1,66 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.top-hero {
+  position: relative;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.top-hero_image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.top-hero_actions {
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+  display: flex;
+  gap: 16px;
+}
+
+.top-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid #245b96;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.top-button--login {
+  background-color: #245b96;
+  color: white;
+}
+
+.top-button--signup {
+  background-color: white;
+  color: #245b96;
+}
+
+.top-button:hover {
+  filter: brightness(0.95);
+}
+
+.top-button:focus-visible {
+  outline: 3px solid #153b63;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .top-hero_actions {
+    position: static;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #e1eeff;
+  }
+
+  .top-button {
+    font-size: 16px;
+  }
+
+}
