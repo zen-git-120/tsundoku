@@ -126,7 +126,13 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test:system
+        run: |
+          bin/rails db:test:prepare
+          if [ -d test/system ] && find test/system -name '*_test.rb' -print -quit | grep -q .; then
+            bin/rails test:system
+          else
+            echo "No system tests found. Skipping system test run."
+          fi
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
