@@ -3,4 +3,8 @@ class BooksController < ApplicationController
 
   def index
   end
+
+  def new
+    @book = current_user.books.build
+  end
 end
