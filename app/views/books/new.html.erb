@@ -7,5 +7,26 @@
       タイトルと読書状態を入力して、本棚に追加しましょう。
     </p>
 
+    <%= form_with model: @book do |form| %>
+      <div class="mb-3" >
+        <%= form.label :title, "タイトル", class: "form-label" %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :status, "読書状態", class: "form-label" %>
+        <%= form.select :status,
+                        [["積んでる", "unread"],
+                         ["読んでる", "reading"],
+                         ["読んだ", "finished"]],
+                         {},
+                         class: "form-select" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit "登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
     <%= link_to "本棚に戻る", books_path, class:"btn btn-secondary" %>
 </main>
