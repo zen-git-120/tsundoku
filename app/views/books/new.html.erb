@@ -8,6 +8,16 @@
     </p>
 
     <%= form_with model: @book do |form| %>
+      <% if @book.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <p class="mb-1">入力内容を確認してください。</p>
+          <ul class="mb-0">
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
       <div class="mb-3" >
         <%= form.label :title, "タイトル", class: "form-label" %>
         <%= form.text_field :title, class: "form-control" %>
