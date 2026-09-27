@@ -21,6 +21,22 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = current_user.books.find(params[:id])
+  end
+
+  def update
+    @book = current_user.books.find(params[:id])
+
+    if @book.update(book_params)
+      redirect_to books_path,
+                  notice: "本を更新しました",
+                  status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def book_params

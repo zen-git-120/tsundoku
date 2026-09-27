@@ -27,6 +27,7 @@
                    <span class="badge text-bg-secondary">
                      <%= status_labels[book.status] %>
                    </span>
+                  <%= link_to "編集", edit_book_path(book), class: "btn btn-outline-secondary btn-sm" %>
                 </li>
              <% end %>
            </ul>
