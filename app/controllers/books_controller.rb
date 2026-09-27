@@ -37,6 +37,22 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    @book = current_user.books.find(params[:id])
+
+    if @book.destroy
+      redirect_to books_path,
+                  notice: "本を削除しました",
+                  status: :see_other
+
+    else
+      redirect_to books_path,
+                  alert: "本を削除できませんでした",
+                  status: :see_other
+    end
+  end
+  
+
   private
 
   def book_params
