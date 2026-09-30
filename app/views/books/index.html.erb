@@ -28,6 +28,15 @@
                      <%= status_labels[book.status] %>
                    </span>
                   <%= link_to "編集", edit_book_path(book), class: "btn btn-outline-secondary btn-sm" %>
+                  <%= button_to "削除",
+                                book_path(book),
+                                method: :delete,
+                                form: {
+                                  data: {
+                                    turbo_confirm: "この本を削除しますか？削除すると戻せません。"
+                                  }
+                                },
+                                class: "btn btn-outline-danger btn-sm" %>
                 </li>
              <% end %>
            </ul>
