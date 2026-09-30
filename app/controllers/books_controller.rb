@@ -51,7 +51,6 @@ class BooksController < ApplicationController
                   status: :see_other
     end
   end
-  
 
   private
 
