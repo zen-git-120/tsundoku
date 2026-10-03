@@ -29,10 +29,14 @@
       <%= link_to "Tsun-doku", root_path,
           class: "fs-4 fw-bold text-decoration-none" %>
       <% if user_signed_in? %>
+        <div class="d-flex align-items-center gap-3">
+          <span><%= current_user.username.presence || "ユーザー" %>さん</span>
+
           <%= button_to "ログアウト",
             destroy_user_session_path,
             method: :delete,
             class: "btn btn-outline-primary" %>
+        </div>
       <% end %>
     </header>
     <p class="notice"><%= notice %></p>
