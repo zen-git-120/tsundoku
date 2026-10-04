@@ -1,0 +1,23 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "ログアウトしました。"
+
+    registrations:
+      signed_up: "アカウントを登録しました。"
+      updated: "アカウント情報を更新しました。"
+      updated_but_not_signed_in: "アカウント情報を更新しました。再度ログインしてください。"
+      destroyed: "アカウントを削除しました。"
+    
+    failure:
+      already_authenticated: "すでにログインしています。"
+      invalid: "メールアドレスまたはパスワードが正しくありません。"
+      not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
+      unauthenticated: "ログインまたは新規登録してください。"
+      timeout: "ログインの有効期限が切れました。再度ログインしてください。"
+      inactive: "アカウントが有効になっていません。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "あと1回ログインに失敗すると、アカウントがロックされます。"
+      unconfirmed: "メールアドレスの確認が必要です。"
