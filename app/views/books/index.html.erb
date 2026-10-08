@@ -20,15 +20,25 @@
             "finished" => "読んだ"
            } %>
 
-           <ul class="list-group list-group-flush">
+            <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 list-unstyled">
               <% @books.each do |book| %>
-                <li class="list-group-item d-flex justify-content-between align-items-center gap-3">
-                   <span><%= book.title %></span>
-                   <span class="badge text-bg-secondary">
-                     <%= status_labels[book.status] %>
-                   </span>
-                  <%= link_to "編集", edit_book_path(book), class: "btn btn-outline-secondary btn-sm" %>
-                  <%= button_to "削除",
+                <li class="col">
+                  <article class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                      <h3 class="h5 card-title text-break"><%= book.title %></h3>
+
+                      <p>
+                        <span class="badge text-bg-secondary">
+                          <%= status_labels[book.status] %>
+                        </span>
+                      </p>
+
+                      <div class="d-flex gap-2 mt-auto">
+                        <%= link_to "編集",
+                                    edit_book_path(book),
+                                    class: "btn btn-outline-secondary btn-sm" %>
+
+                        <%= button_to "削除",
                                 book_path(book),
                                 method: :delete,
                                 form: {
@@ -37,9 +47,12 @@
                                   }
                                 },
                                 class: "btn btn-outline-danger btn-sm" %>
+                      </div>
+                    </div>
+                  </article>
                 </li>
-             <% end %>
-           </ul>
+              <% end %>
+            </ul>
         <% else %>
           <p class="text-secondary mb-0">
              まだ本が登録されていません。「本を登録」から追加しましょう。
