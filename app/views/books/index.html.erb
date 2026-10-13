@@ -33,6 +33,10 @@
                         </span>
                       </p>
 
+                      <p class="small text-secondary">
+                        登録日時：<%= book.created_at.strftime("%Y/%m/%d %H:%M") %>
+                      </p>
+
                       <div class="d-flex gap-2 mt-auto">
                         <%= link_to "編集",
                                     edit_book_path(book),
