@@ -20,6 +20,12 @@
             "finished" => "読んだ"
            } %>
 
+           <% status_colors = {
+              "unread" => "text-bg-danger",
+              "reading" => "text-bg-warning",
+              "finished" => "text-bg-success"
+            } %>
+
             <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 list-unstyled">
               <% @books.each do |book| %>
                 <li class="col">
@@ -28,7 +34,7 @@
                       <h3 class="h5 card-title text-break"><%= book.title %></h3>
 
                       <p>
-                        <span class="badge text-bg-secondary">
+                        <span class="badge <%= status_colors[book.status] %>">
                           <%= status_labels[book.status] %>
                         </span>
                       </p>
