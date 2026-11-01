@@ -2,7 +2,22 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @books = current_user.books.order(created_at: :desc)
+    per_page = 12
+    books = current_user.books
+
+    @total_pages = [ (books.count + per_page - 1) / per_page, 1 ].max
+
+    page = params.fetch(:page, "1").to_s
+    @current_page = page.match?(/\A[1-9]\d*\z/) ? page.to_i : 0
+
+    unless @current_page.between?(1, @total_pages)
+      redirect_to books_path, alert: "指定されたページはありません。本棚の最初のページを表示します。"
+      return
+    end
+
+    @books = books.order(created_at: :desc, id: :desc)
+                  .limit(per_page)
+                  .offset((@current_page - 1) * per_page)
   end
 
   def new
