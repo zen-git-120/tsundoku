@@ -86,7 +86,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       created_at: registered_at - 1.day
     )
 
-    expected_titles = same_time_books.reverse.map(&:title) + [older_book.title]
+    expected_titles = same_time_books.reverse.map(&:title) + [ older_book.title ]
 
     get books_path
 

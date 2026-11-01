@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     per_page = 12
     books = current_user.books
 
-    @total_pages = [(books.count + per_page - 1) / per_page, 1].max
+    @total_pages = [ (books.count + per_page - 1) / per_page, 1 ].max
 
     page = params.fetch(:page, "1").to_s
     @current_page = page.match?(/\A[1-9]\d*\z/) ? page.to_i : 0
